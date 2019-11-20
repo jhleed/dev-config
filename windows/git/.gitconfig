@@ -7,7 +7,7 @@
 	rbm = rebase master
 [user]
 	name = 이종호
-	email = jongholee@ebay.com
+	email = jhleed3@gmail.com
 [pull]
 	rebase = true
 [diff]
