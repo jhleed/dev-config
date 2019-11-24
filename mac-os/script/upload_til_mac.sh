@@ -16,6 +16,11 @@ unzip $til_upload_dir/*.zip
 echo "Move to TIL directory.."
 
 # move til directory
+
+rm $til_dir/*.md
+rm $til_upload_dir/*.png
+rm $til_upload_dir/*.jpeg
+
 mv $til_upload_dir/*.md $tir_dir/readme.md
 mv $til_upload_dir/*.png $tir_dir/
 mv $til_upload_dir/*.jpeg $tir_dir/
