@@ -2,13 +2,13 @@
 
 # TODO : Change to env variables
 
-til_repo=$til_repoSITORY
+tir_repo=$TIR_REPOSITORY
 til_upload_dir=$UPLOAD_TIR_DIR
 til_name='Today I Learned TIL'
 
 DATE=$(date +%F)
 
-echo "til_repo :" $til_repo
+echo "tir_repo :" $tir_repo
 echo "til_upload_dir :" $til_upload_dir
 
 echo "Unziping.."
@@ -20,17 +20,17 @@ echo "Move to TIL directory.."
 
 # move til directory
 
-# rm -r $til_repo/*
+# rm -r $tir_repo/*
 
-rm $til_repo/readme.md
-rm -r $til_repo/Today\ I\ Learned\ TIL/
+rm $tir_repo/readme.md
+rm -r $tir_repo/Today\ I\ Learned\ TIL/
 
-mv $til_upload_dir/*.md $til_repo/readme.md
-mv $til_upload_dir/Today\ I\ Learned\ TIL/ $til_repo
+mv $til_upload_dir/*.md $tir_repo/readme.md
+mv $til_upload_dir/Today\ I\ Learned\ TIL/ $tir_repo
 
 echo "Git Repository Push.."
 
-cd $til_repo
+cd $tir_repo
 
 git add .
 git commit -m "$DATE"
