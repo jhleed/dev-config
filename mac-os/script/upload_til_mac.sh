@@ -2,36 +2,35 @@
 
 # TODO : Change to env variables
 
-tir_dir=$TIR_REPOSITORY
+tir_repo=$TIR_REPOSITORY
 til_upload_dir=$UPLOAD_TIR_DIR
+til_name='Today I Learned TIL'
+
 DATE=$(date +%F)
 
-echo "tir_dir :" $tir_dir
+echo "tir_repo :" $tir_repo
 echo "til_upload_dir :" $til_upload_dir
 
 echo "Unziping.."
 
 unzip $til_upload_dir/*.zip
+# rm $til_upload_dir/*.zip
 
 echo "Move to TIL directory.."
 
 # move til directory
 
-rm $til_dir/*.md
-rm $til_upload_dir/*.png
-rm $til_upload_dir/*.jpeg
+# rm -r $tir_repo/*
 
-mv $til_upload_dir/*.md $tir_dir/readme.md
-mv $til_upload_dir/*.png $tir_dir/
-mv $til_upload_dir/*.jpeg $tir_dir/
+rm $tir_repo/readme.md
+rm -r $tir_repo/Today\ I\ Learned\ TIL/
 
-
-echo "Git Repository Push.."
+mv $til_upload_dir/*.md $tir_repo/readme.md
+mv $til_upload_dir/Today\ I\ Learned\ TIL/ $tir_repo
 
 echo "Git Repository Push.."
 
-
-cd $tir_dir
+cd $tir_repo
 
 git add .
 git commit -m "$DATE"
@@ -42,8 +41,6 @@ echo "Upload Complete!"
 
 echo "Clear resources.."
 
-rm $til_upload_dir/*.zip
-rm $til_upload_dir/*.png
-rm $til_upload_dir/*.jpeg
+rm -r $til_upload_dir/*
 
 open https://github.com/jhleed/TIL/tree/master
